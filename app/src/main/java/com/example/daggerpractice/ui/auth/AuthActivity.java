@@ -1,5 +1,6 @@
 package com.example.daggerpractice.ui.auth;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -16,6 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.bumptech.glide.RequestManager;
 import com.example.daggerpractice.R;
 import com.example.daggerpractice.models.User;
+import com.example.daggerpractice.ui.main.MainActivity;
 import com.example.daggerpractice.viewModels.ViewModelProviderFactory;
 
 import javax.inject.Inject;
@@ -68,7 +70,9 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                            showProgressBar(false);
                            if (userResource.data != null) {
                                Log.d(TAG, "onChanged: LOGIN SUCCESS :"+userResource.data.getEmail());
+                               onLoginSuccess();
                            }
+
                            break;
                        case LOADING:
                            showProgressBar(true);
@@ -83,6 +87,11 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
        });
     }
 
+    private void onLoginSuccess() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
     private void showProgressBar(boolean isVisible){
         if (isVisible){
             progressBar.setVisibility(View.VISIBLE);
