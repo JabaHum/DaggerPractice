@@ -72,7 +72,6 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                                Log.d(TAG, "onChanged: LOGIN SUCCESS :"+userResource.data.getEmail());
                                onLoginSuccess();
                            }
-
                            break;
                        case LOADING:
                            showProgressBar(true);
