@@ -7,7 +7,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-public abstract class MainFragmentBuildersModule {
+public abstract class MainBuildersModule {
 
     @ContributesAndroidInjector
     abstract ProfileFragment contributeProfileFragment();

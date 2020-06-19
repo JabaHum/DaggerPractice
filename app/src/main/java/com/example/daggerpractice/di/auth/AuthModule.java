@@ -1,4 +1,6 @@
-package com.example.daggerpractice.network.auth;
+package com.example.daggerpractice.di.auth;
+
+import com.example.daggerpractice.network.auth.AuthApi;
 
 import dagger.Module;
 import dagger.Provides;
