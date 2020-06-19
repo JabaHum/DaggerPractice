@@ -67,7 +67,7 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                        case AUTHENTICATED:
                            showProgressBar(false);
                            if (userResource.data != null) {
-                               Log.d(TAG, "onChanged: LOGIN SUCCESS"+userResource.data.getEmail());
+                               Log.d(TAG, "onChanged: LOGIN SUCCESS :"+userResource.data.getEmail());
                            }
                            break;
                        case LOADING:

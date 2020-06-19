@@ -30,7 +30,6 @@ public class AuthViewModel extends ViewModel {
     }
 
     void authenticateWithId(int userId) {
-
         Log.d(TAG, "authenticateWithId: Attempting to login");
         sessionManager.authenticateWithId(queryUserId(userId));
 
