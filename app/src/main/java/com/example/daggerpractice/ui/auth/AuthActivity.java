@@ -3,6 +3,7 @@ package com.example.daggerpractice.ui.auth;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -55,21 +56,27 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
     }
 
     private void subscribeObservers(){
-       viewModel.observeUser().observe(this, new Observer<Resource<User>>() {
+       viewModel.observeAuthState().observe(this, new Observer<AuthResource<User>>() {
            @Override
-           public void onChanged(Resource<User> userResource) {
+           public void onChanged(AuthResource<User> userResource) {
                if (userResource !=null){
                    switch (userResource.status){
                        case ERROR:
                            showProgressBar(false);
                            Toast.makeText(AuthActivity.this, userResource.message+"\nDid you enter a number between 1 and 10", Toast.LENGTH_SHORT).show();
-                       case SUCCESS:
+                       case AUTHENTICATED:
                            showProgressBar(false);
-                           //Log.d(TAG, "onChanged: LOGIN SUCCESS"+userResource.data.getEmail());
+                           if (userResource.data != null) {
+                               Log.d(TAG, "onChanged: LOGIN SUCCESS"+userResource.data.getEmail());
+                           }
                            break;
                        case LOADING:
                            showProgressBar(true);
                            break;
+                       case NOT_AUTHENTICATED:
+                           showProgressBar(false);
+                           break;
+
                    }
                }
            }
