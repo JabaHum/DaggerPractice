@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DaggerPractice</string>
     <string name="logout">Logout</string>
+    <string name="this_is_a_title">this is a title</string>
 </resources>
