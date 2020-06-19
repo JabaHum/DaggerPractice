@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer;
 
 import com.example.daggerpractice.models.User;
 import com.example.daggerpractice.ui.auth.AuthResource;
-import com.example.daggerpractice.ui.auth.Resource;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

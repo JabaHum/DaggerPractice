@@ -1,4 +1,4 @@
-package com.example.daggerpractice.ui.auth;
+package com.example.daggerpractice.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
