@@ -54,6 +54,7 @@ public class PostsFragment extends DaggerFragment {
         mRecycerView = view.findViewById(R.id.recycler_view);
 
         viewModel = ViewModelProviders.of(this,providerFactory).get(PostsViewModel.class);
+
         initRecyclerView();
         subscribeObservers();
     }
@@ -70,8 +71,11 @@ public class PostsFragment extends DaggerFragment {
                             break;
 
                         case SUCCESS:
-                            mPostRecyclerAdaper.setPosts(listResource.data);
-                            Log.d(TAG, "onChanged: ON SUCESS" + listResource.data);
+                            if (listResource.data != null) {
+                                mPostRecyclerAdaper.setPosts(listResource.data);
+                                Log.d(TAG, "onChanged: ON SUCCESS" + listResource.data);
+                            }
+
                             break;
 
                         case LOADING:
